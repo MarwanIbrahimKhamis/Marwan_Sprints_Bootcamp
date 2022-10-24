@@ -1,0 +1,834 @@
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM
+$ git init git_project1
+Initialized empty Git repository in M:/DevOps BootCamp/SCM/git_project1/.git/
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM
+$ ls
+git_project1/
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM
+$ cd git_project1/
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git config --global user.name "Marwan Aly"
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ ls
+file1.yml.txt
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file1.yml.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git add file1.yml.txt
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   file1.yml.txt
+
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git commit -m "first commit - added file1"
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'Marwan Aly@DESKTOP-7UMB7J0.(none)')
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git config --global user.email "marawan.aly29@gmail.com"
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git config --global user.name "Marwan Aly"
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git commit -m "first commit - added file1"
+[master (root-commit) 3173829] first commit - added file1
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file1.yml.txt
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git log
+commit 317382959b1213301e893ecdfa63a93809c941a5 (HEAD -> master)
+Author: Marwan Aly <marawan.aly29@gmail.com>
+Date:   Mon Oct 24 19:49:51 2022 +0200
+
+    first commit - added file1
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file1.yml.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git restore file1.yml.txt
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file1.yml.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git add .
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   file1.yml.txt
+
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git restore -h
+usage: git restore [<options>] [--source=<branch>] <file>...
+
+    -s, --source <tree-ish>
+                          which tree-ish to checkout from
+    -S, --staged          restore the index
+    -W, --worktree        restore the working tree (default)
+    --ignore-unmerged     ignore unmerged entries
+    --overlay             use overlay mode
+    -q, --quiet           suppress progress reporting
+    --recurse-submodules[=<checkout>]
+                          control recursive updating of submodules
+    --progress            force progress reporting
+    -m, --merge           perform a 3-way merge with the new branch
+    --conflict <style>    conflict style (merge, diff3, or zdiff3)
+    -2, --ours            checkout our version for unmerged files
+    -3, --theirs          checkout their version for unmerged files
+    -p, --patch           select hunks interactively
+    --ignore-skip-worktree-bits
+                          do not limit pathspecs to sparse entries only
+    --pathspec-from-file <file>
+                          read pathspec from file
+    --pathspec-file-nul   with --pathspec-from-file, pathspec elements are separated with NUL character
+
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git restore --stage file1.yml.txt
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file1.yml.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git add .
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   file1.yml.txt
+
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git commit -m "second commit"
+[master 91af724] second commit
+ 1 file changed, 1 insertion(+)
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git log
+commit 91af7245efe8a80b304cef4f26157371893ac253 (HEAD -> master)
+Author: Marwan Aly <marawan.aly29@gmail.com>
+Date:   Mon Oct 24 20:06:58 2022 +0200
+
+    second commit
+
+commit 317382959b1213301e893ecdfa63a93809c941a5
+Author: Marwan Aly <marawan.aly29@gmail.com>
+Date:   Mon Oct 24 19:49:51 2022 +0200
+
+    first commit - added file1
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git revert 91af7245efe8a80b304cef4f26157371893ac253
+[master 75fc5df] Revert "second commit"
+ 1 file changed, 1 deletion(-)
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git log
+commit 75fc5df57704e3c52f07fa6a3af87792711e7733 (HEAD -> master)
+Author: Marwan Aly <marawan.aly29@gmail.com>
+Date:   Mon Oct 24 20:09:02 2022 +0200
+
+    Revert "second commit"
+
+    This reverts commit 91af7245efe8a80b304cef4f26157371893ac253.
+
+commit 91af7245efe8a80b304cef4f26157371893ac253
+Author: Marwan Aly <marawan.aly29@gmail.com>
+Date:   Mon Oct 24 20:06:58 2022 +0200
+
+    second commit
+
+commit 317382959b1213301e893ecdfa63a93809c941a5
+Author: Marwan Aly <marawan.aly29@gmail.com>
+Date:   Mon Oct 24 19:49:51 2022 +0200
+
+    first commit - added file1
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git branch feature1
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git branch
+  feature1
+* master
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git checkout feature1
+Switched to branch 'feature1'
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (feature1)
+$ ls
+file1.yml.txt
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (feature1)
+$ git add .
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (feature1)
+$ git commit -m "first commit in feature branch"
+[feature1 4b297c9] first commit in feature branch
+ 1 file changed, 1 insertion(+)
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (feature1)
+$ git status
+On branch feature1
+nothing to commit, working tree clean
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (feature1)
+$ git log
+commit 4b297c923dbe14f16677a579e91a89a03a144e08 (HEAD -> feature1)
+Author: Marwan Aly <marawan.aly29@gmail.com>
+Date:   Mon Oct 24 20:16:48 2022 +0200
+
+    first commit in feature branch
+
+commit 75fc5df57704e3c52f07fa6a3af87792711e7733 (master)
+Author: Marwan Aly <marawan.aly29@gmail.com>
+Date:   Mon Oct 24 20:09:02 2022 +0200
+
+    Revert "second commit"
+
+    This reverts commit 91af7245efe8a80b304cef4f26157371893ac253.
+
+commit 91af7245efe8a80b304cef4f26157371893ac253
+Author: Marwan Aly <marawan.aly29@gmail.com>
+Date:   Mon Oct 24 20:06:58 2022 +0200
+
+    second commit
+
+commit 317382959b1213301e893ecdfa63a93809c941a5
+Author: Marwan Aly <marawan.aly29@gmail.com>
+Date:   Mon Oct 24 19:49:51 2022 +0200
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (feature1)
+$ git checkout master
+Switched to branch 'master'
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git checkout feature1
+Switched to branch 'feature1'
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (feature1)
+$ git checkout master
+Switched to branch 'master'
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git checkout feature1
+Switched to branch 'feature1'
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (feature1)
+$ git add .
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (feature1)
+$ git commit -m "EOD"
+[feature1 2dba6c8] EOD
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (feature1)
+$ git status
+On branch feature1
+nothing to commit, working tree clean
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (feature1)
+$ git checkout master
+Switched to branch 'master'
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git merge feature1
+Updating 75fc5df..2dba6c8
+Fast-forward
+ file1.yml.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ ^C
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git clone ^[[200~https://github.com/MarwanIbrahimKhamis/Marwan_Sprints_Bootcamp.git~
+Cloning into 'Marwan_Sprints_Bootcamp.git~'...
+fatal: protocol '?[200~https' is not supported
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git clone https://github.com/MarwanIbrahimKhamis/Marwan_Sprints_Bootcamp.git
+Cloning into 'Marwan_Sprints_Bootcamp'...
+warning: You appear to have cloned an empty repository.
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git branch
+  feature1
+* master
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git branch test_remote_repo
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git branch
+  feature1
+* master
+  test_remote_repo
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git checkout test_remote_repo
+Switched to branch 'test_remote_repo'
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (test_remote_repo)
+$ git checkout master
+Switched to branch 'master'
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git clone https://github.com/MarwanIbrahimKhamis/Marwan_Sprints_Bootcamp.git
+fatal: destination path 'Marwan_Sprints_Bootcamp' already exists and is not an empty directory.
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git checkout test_remote_repo
+Switched to branch 'test_remote_repo'
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (test_remote_repo)
+$ git push
+fatal: No configured push destination.
+Either specify the URL from the command-line or configure a remote repository using
+
+    git remote add <name> <url>
+
+and then push using the remote name
+
+    git push <name>
+
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (test_remote_repo)
+$ git push --set upstream origin test_remote_repo
+error: src refspec origin does not match any
+error: failed to push some refs to 'upstream'
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (test_remote_repo)
+$ git status
+On branch test_remote_repo
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Marwan_Sprints_Bootcamp/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (test_remote_repo)
+$ git status
+On branch test_remote_repo
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Marwan_Sprints_Bootcamp/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (test_remote_repo)
+$ git add .
+error: 'Marwan_Sprints_Bootcamp/' does not have a commit checked out
+fatal: adding files failed
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (test_remote_repo)
+$ git status
+On branch test_remote_repo
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Marwan_Sprints_Bootcamp/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (test_remote_repo)
+$ git add .
+error: 'Marwan_Sprints_Bootcamp/' does not have a commit checked out
+fatal: adding files failed
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (test_remote_repo)
+$ git push
+fatal: No configured push destination.
+Either specify the URL from the command-line or configure a remote repository using
+
+    git remote add <name> <url>
+
+and then push using the remote name
+
+    git push <name>
+
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (test_remote_repo)
+$ git clone https://github.com/MarwanIbrahimKhamis/Marwan_Sprints_Bootcamp.git
+fatal: destination path 'Marwan_Sprints_Bootcamp' already exists and is not an empty directory.
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (test_remote_repo)
+$ git checkout master
+Switched to branch 'master'
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git clone https://github.com/MarwanIbrahimKhamis/Marwan_Sprints_Bootcamp.git
+fatal: destination path 'Marwan_Sprints_Bootcamp' already exists and is not an empty directory.
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git pull
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull <remote> <branch>
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=<remote>/<branch> master
+
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git pull https://github.com/MarwanIbrahimKhamis/Marwan_Sprints_Bootcamp.git
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 599 bytes | 6.00 KiB/s, done.
+From https://github.com/MarwanIbrahimKhamis/Marwan_Sprints_Bootcamp
+ * branch            HEAD       -> FETCH_HEAD
+fatal: refusing to merge unrelated histories
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git pull
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull <remote> <branch>
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=<remote>/<branch> master
+
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ ^C
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git branch --set-upstream-to=https://github.com/MarwanIbrahimKhamis/Marwan_Sprints_Bootcamp.git
+fatal: the requested upstream branch 'https://github.com/MarwanIbrahimKhamis/Marwan_Sprints_Bootcamp.git' does not exist
+hint:
+hint: If you are planning on basing your work on an upstream
+hint: branch that already exists at the remote, you may need to
+hint: run "git fetch" to retrieve it.
+hint:
+hint: If you are planning to push out a new local branch that
+hint: will track its remote counterpart, you may want to use
+hint: "git push -u" to set the upstream config as you push.
+hint: Disable this message with "git config advice.setUpstreamFailure false"
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git pull https://github.com/MarwanIbrahimKhamis/Marwan_Sprints_Bootcamp.git
+From https://github.com/MarwanIbrahimKhamis/Marwan_Sprints_Bootcamp
+ * branch            HEAD       -> FETCH_HEAD
+fatal: refusing to merge unrelated histories
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ git clone https://github.com/MarwanIbrahimKhamis/Marwan_Sprints_Bootcamp.git
+Cloning into 'Marwan_Sprints_Bootcamp'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ ls
+Marwan_Sprints_Bootcamp/  file1.yml.txt
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1 (master)
+$ cd Marwan_Sprints_Bootcamp/
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1/Marwan_Sprints_Bootcamp (main)
+$ ls
+test
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1/Marwan_Sprints_Bootcamp (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1/Marwan_Sprints_Bootcamp (main)
+$ git log
+commit 39879efa2d60e098e8f13687c26c1f9ee643a7a5 (HEAD -> main, origin/main, origin/HEAD)
+Author: MarwanIbrahimKhamis <109803612+MarwanIbrahimKhamis@users.noreply.github.com>
+Date:   Mon Oct 24 21:35:26 2022 +0200
+
+    Create test
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1/Marwan_Sprints_Bootcamp (main)
+$ git branch
+* main
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1/Marwan_Sprints_Bootcamp (main)
+$ git branch test_remote_repo
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1/Marwan_Sprints_Bootcamp (main)
+$ git checkout test_remote_repo
+Switched to branch 'test_remote_repo'
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1/Marwan_Sprints_Bootcamp (test_remote_repo)
+$ git status
+On branch test_remote_repo
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   test
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1/Marwan_Sprints_Bootcamp (test_remote_repo)
+$ git add .
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1/Marwan_Sprints_Bootcamp (test_remote_repo)
+$ git commit -m "first commit on remote branch"
+[test_remote_repo 791f091] first commit on remote branch
+ 1 file changed, 1 insertion(+)
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1/Marwan_Sprints_Bootcamp (test_remote_repo)
+$ git status
+On branch test_remote_repo
+nothing to commit, working tree clean
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1/Marwan_Sprints_Bootcamp (test_remote_repo)
+$ git log
+commit 791f0911ea36fb37c10910c47f3d5587248fbfb2 (HEAD -> test_remote_repo)
+Author: Marwan Aly <marawan.aly29@gmail.com>
+Date:   Mon Oct 24 23:40:48 2022 +0200
+
+    first commit on remote branch
+
+commit 39879efa2d60e098e8f13687c26c1f9ee643a7a5 (origin/main, origin/HEAD, main)
+Author: MarwanIbrahimKhamis <109803612+MarwanIbrahimKhamis@users.noreply.github.com>
+Date:   Mon Oct 24 21:35:26 2022 +0200
+
+    Create test
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1/Marwan_Sprints_Bootcamp (test_remote_repo)
+$ git push
+fatal: The current branch test_remote_repo has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin test_remote_repo
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1/Marwan_Sprints_Bootcamp (test_remote_repo)
+$  git push --set-upstream origin test_remote_repo
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Writing objects: 100% (3/3), 282 bytes | 282.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'test_remote_repo' on GitHub by visiting:
+remote:      https://github.com/MarwanIbrahimKhamis/Marwan_Sprints_Bootcamp/pull/new/test_remote_repo
+remote:
+To https://github.com/MarwanIbrahimKhamis/Marwan_Sprints_Bootcamp.git
+ * [new branch]      test_remote_repo -> test_remote_repo
+branch 'test_remote_repo' set up to track 'origin/test_remote_repo'.
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1/Marwan_Sprints_Bootcamp (test_remote_repo)
+$ git add .
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1/Marwan_Sprints_Bootcamp (test_remote_repo)
+$ git commit -m "after push"
+[test_remote_repo 9769e4e] after push
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1/Marwan_Sprints_Bootcamp (test_remote_repo)
+$ git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 287 bytes | 287.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/MarwanIbrahimKhamis/Marwan_Sprints_Bootcamp.git
+   791f091..9769e4e  test_remote_repo -> test_remote_repo
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1/Marwan_Sprints_Bootcamp (test_remote_repo)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1/Marwan_Sprints_Bootcamp (main)
+$ git pull
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 661 bytes | 5.00 KiB/s, done.
+From https://github.com/MarwanIbrahimKhamis/Marwan_Sprints_Bootcamp
+   39879ef..7c1a793  main       -> origin/main
+Updating 39879ef..7c1a793
+Fast-forward
+ test | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1/Marwan_Sprints_Bootcamp (main)
+$ git merge test_remote_repo
+Auto-merging test
+CONFLICT (content): Merge conflict in test
+Automatic merge failed; fix conflicts and then commit the result.
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1/Marwan_Sprints_Bootcamp (main|MERGING)
+$ git checkout test_remote_repo
+error: you need to resolve your current index first
+test: needs merge
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1/Marwan_Sprints_Bootcamp (main|MERGING)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   test
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1/Marwan_Sprints_Bootcamp (main|MERGING)
+$ git add .
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1/Marwan_Sprints_Bootcamp (main|MERGING)
+$ git commit -m "resolved the conflict"
+[main b60adb3] resolved the conflict
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1/Marwan_Sprints_Bootcamp (main)
+$ git checkout test_remote_repo
+Switched to branch 'test_remote_repo'
+Your branch is up to date with 'origin/test_remote_repo'.
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1/Marwan_Sprints_Bootcamp (test_remote_repo)
+$ git merge main
+Updating 9769e4e..b60adb3
+Fast-forward
+ test | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1/Marwan_Sprints_Bootcamp (test_remote_repo)
+$ log
+bash: log: command not found
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1/Marwan_Sprints_Bootcamp (test_remote_repo)
+$ git log
+commit b60adb3a3f9c4287d9ff179e478b131456784c83 (HEAD -> test_remote_repo, main)
+Merge: 7c1a793 9769e4e
+Author: Marwan Aly <marawan.aly29@gmail.com>
+commit b60adb3a3f9c4287d9ff179e478b131456784c83 (HEAD -> test_remote_repo, main)
+Merge: 7c1a793 9769e4e
+Author: Marwan Aly <marawan.aly29@gmail.com>
+Date:   Mon Oct 24 23:57:48 2022 +0200
+
+    resolved the conflict
+
+commit 7c1a793f98335ed3b4162c92c804e33a748350ba (origin/main, origin/HEAD)
+Author: MarwanIbrahimKhamis <109803612+MarwanIbrahimKhamis@users.noreply.github.com>
+Date:   Mon Oct 24 23:52:01 2022 +0200
+
+    Update test
+
+    committing from another feature
+
+commit 9769e4e9cd40b32cd92c9ce7e9623d369e198f60 (origin/test_remote_repo)
+Author: Marwan Aly <marawan.aly29@gmail.com>
+Date:   Mon Oct 24 23:46:55 2022 +0200
+
+    after push
+
+commit 791f0911ea36fb37c10910c47f3d5587248fbfb2
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1/Marwan_Sprints_Bootcamp (test_remote_repo)
+$ git checkout main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 3 commits.
+  (use "git push" to publish your local commits)
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1/Marwan_Sprints_Bootcamp (main)
+$ git push
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 332 bytes | 332.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/MarwanIbrahimKhamis/Marwan_Sprints_Bootcamp.git
+   7c1a793..b60adb3  main -> main
+
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1/Marwan_Sprints_Bootcamp (main)
+$ git log
+commit b60adb3a3f9c4287d9ff179e478b131456784c83 (HEAD -> main, origin/main, origin/HEAD, test_remote_repo)
+Merge: 7c1a793 9769e4e
+Author: Marwan Aly <marawan.aly29@gmail.com>
+Date:   Mon Oct 24 23:57:48 2022 +0200
+
+    resolved the conflict
+
+commit 7c1a793f98335ed3b4162c92c804e33a748350ba
+Author: MarwanIbrahimKhamis <109803612+MarwanIbrahimKhamis@users.noreply.github.com>
+Date:   Mon Oct 24 23:52:01 2022 +0200
+
+    Update test
+
+    committing from another feature
+
+commit 9769e4e9cd40b32cd92c9ce7e9623d369e198f60 (origin/test_remote_repo)
+Author: Marwan Aly <marawan.aly29@gmail.com>
+Date:   Mon Oct 24 23:46:55 2022 +0200
+
+    after push
+
+commit 791f0911ea36fb37c10910c47f3d5587248fbfb2
+Author: Marwan Aly <marawan.aly29@gmail.com>
+Date:   Mon Oct 24 23:40:48 2022 +0200
+
+    first commit on remote branch
+
+commit 39879efa2d60e098e8f13687c26c1f9ee643a7a5
+Author: MarwanIbrahimKhamis <109803612+MarwanIbrahimKhamis@users.noreply.github.com>
+Date:   Mon Oct 24 21:35:26 2022 +0200
+
+    Create test
+ ESCOC
+
+
+
+
+
+e198f60 (origin/test_remote_repo)
+com>
+
+
+
+
+48fbfb2
+com>
+
+
+
+
+643a7a5
+arwanIbrahimKhamis@users.noreply.github.com>
+
+
+
+~
+ ESCOC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+com>
+
+
+
+~
+w
+Marwan Aly@DESKTOP-7UMB7J0 MINGW64 /m/DevOps BootCamp/SCM/git_project1/Marwan_Sprints_Bootcamp (main)
+$
