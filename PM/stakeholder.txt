@@ -1,0 +1,10 @@
+1-Customer
+2-Sponsor
+3-Software team
+4-Customer service team
+5-Marketing team
+6-Card manufacture team
+7-restaurants, stores,clinics and mendical centers owners
+8-Governance 
+9-mobile software(android-ios)
+10-google
