@@ -28,7 +28,7 @@ pipeline {
         
         stage('deployment') {  
             steps {
-                deplyment()
+                deployment()
             }
         }    
     }
