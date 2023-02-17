@@ -1,4 +1,4 @@
-def call(check_namespace) {
+def call(namespace) {
   echo "checking your code"
   echo "${params.namespace}"
 }
