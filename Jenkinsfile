@@ -1,3 +1,5 @@
+@Library('lab3')_
+
 pipeline {
      agent any
     parameters {
@@ -8,8 +10,7 @@ pipeline {
     stages {
         stage('check') {
             steps {
-                echo "checking your code"
-                echo "${params.namespace}"
+                check(namespace)
                
             }
         }
@@ -21,14 +22,13 @@ pipeline {
                 }
             }
             steps {
-                echo "testing your app" 
+                test()
             }
         }
         
         stage('deployment') {  
             steps {
-                echo "your code is deployed right now"
-                echo "this build number $BUILD_NUMBER"
+                deplyment()
             }
         }    
     }
