@@ -1,0 +1,89 @@
+---
+- name: Install and configure Jenkins
+  hosts: all
+  become: true
+  
+  vars:
+    jenkins_plugins:
+      - name: blueocean
+        version: 1.24.7
+      - name: git
+      - name: ssh-slaves
+      
+  tasks:
+    - name: Add Jenkins repo key
+      apt_key:
+        url: "https://pkg.jenkins.io/debian-stable/jenkins.io.key"
+        state: present
+        
+    - name: Add Jenkins repo to APT sources
+      apt_repository:
+        repo: "deb https://pkg.jenkins.io/debian-stable binary/"
+        state: present
+        
+    - name: Install Jenkins
+      apt:
+        name: jenkins
+        state: present
+        
+    - name: Start Jenkins service
+      systemd:
+        name: jenkins
+        state: started
+        enabled: true
+        
+    - name: Wait for Jenkins to start up
+      uri:
+        url: "http://localhost:8080/login"
+        method: GET
+        return_content: yes
+        status_code: 200
+        timeout: 60
+      register: jenkins_start
+      
+    - name: Generate Jenkins admin password
+      when: jenkins_start.status == 200
+      uri:
+        url: "http://localhost:8080/scriptText"
+        method: POST
+        body: "println(hudson.util.Secret.fromString(jenkins.model.Jenkins.instance.securityRealm.createAccount('admin', 'admin').getApiToken()))"
+        return_content: yes
+        headers:
+          Content-Type: "application/x-www-form-urlencoded"
+          Authorization: "Basic YWRtaW46YWRtaW4="
+      register: jenkins_admin
+      
+    - name: Display Jenkins admin password
+      when: jenkins_start.status == 200
+      debug:
+        msg: "Jenkins admin password: {{ jenkins_admin.content }}"
+        
+    - name: Install Jenkins plugins
+      when: jenkins_start.status == 200
+      jenkins_plugin:
+        name: "{{ item.name }}"
+        version: "{{ item.version | default('latest') }}"
+      loop: "{{ jenkins_plugins }}"
+        
+    - name: Create Jenkins user
+      when: jenkins_start.status == 200
+      jenkins_user:
+        name: ansible
+        password: ansible
+        email: ansible@example.com
+        state: present
+        
+    - name: Configure Jenkins global security
+      when: jenkins_start.status == 200
+      jenkins_script:
+        script: |
+          import jenkins.model.*
+          import hudson.security.*
+          import org.jenkinsci.plugins.*
+          
+          Jenkins.instance.setSecurityRealm(HudsonPrivateSecurityRealm(False))
+          hudsonRealm = HudsonPrivateSecurityRealm(False)
+          hudsonRealm.createAccount('ansible', 'ansible')
+          Jenkins.instance.save()
+        state: present
+        become: true
